@@ -3,15 +3,14 @@
 **소개 :** 가계부 앱의 WEB
 
 ## 사용 기술
-
 - [Node.js](https://nodejs.org/ko/) **16.14.0 LTS**
 - [React](https://ko.reactjs.org/) **17.0.1**
 - [Typesciprt](https://www.typescriptlang.org/) **4.4.2**
 
 ### client
-
 - [axios](https://www.npmjs.com/package/axios) **021.1**
 - [React-Router](https://v5.reactrouter.com/web/guides/quick-start) **5.2.0**
+- [Material-UI](https://mui.com/getting-started/templates/) **5.6.0**
 
 ## 참고 사이트
 
@@ -79,58 +78,37 @@ src
 
 ```text
 로그인(login)
-장부(cog)
-├── 기간내 가계내역
-├── 지출 그래프
-├── 수입 그래프
-├── 지출
-|    ├── 지출 추가
-|    └── 지출 편집
-├── 수입
-|    ├── 수입 추가
-|    └── 수입 편집
-└── 이체
-     ├── 이체 추가
-     └── 이체 편집
-자산(Assets)
-├── 자산 목록
-|    ├── 자산 추가 
-|    └── 자산 편집
-├── 신용카드 목록
-|    ├── 신용카드 추가 
-|    └── 신용카드 편집
-├── 총자산 변동추이 그래프
-├── 부채구성 그래프
-├── 자산구성 그래프
-├── 지출
-|    ├── 지출 추가
-|    └── 지출 편집
-├── 수입
-|    ├── 수입 추가
-|    └── 수입 편집
-└── 이체
-     ├── 이체 추가
-     └── 이체 편집
-
------------------------------------------------------
-
 메인(main)
-├── 산책(walking)
-|    ├── 퍼피(Puppy)
-|    |   └── 퍼피 프로필 (Puppy Profile)
-|    ├── 대신산책 (Instead of walking)
-|    |    └── 다른사람 프로필(Person Profile)
-|    └── 산책 신청(walk application)
-├── 커뮤니티(Community)
-├── 채팅(Chatting)
-└── 더보기(More)
-    ├── 내 퍼피 목록(My Puppy List)
-    |   ├── 내 퍼피 프로필(My Puppy Profile)
-    |   ├── 내 퍼피 프로필 등록(Register My Puppy Profile)
-    |   └── 내 퍼피 프로필 수정(Edit my Puppy Profile)
-    ├── 내 정보 (My Profile)
-    |   ├── 내 정보 등록(Register My Profile)
-    |   └── 내 정보 수정(edit my profile)
-    ├── 친구 목록(friend list)
-    └── 공지사항(announcement)
+├── 장부(cog)
+|    ├── 기간내 가계내역(Household History)
+|    ├── 지출 그래프(cog spending graph)
+|    ├── 수입 그래프(cog income graph)
+|    ├── 지출(cog spending)
+|    |    ├── 지출 추가(add cog spending)
+|    |    └── 지출 편집(edit cog spending)
+|    ├── 수입(cog income)
+|    |    ├── 수입 추가(add cog income)
+|    |    └── 수입 편집(edit cog income)
+|    └── 이체(cog transfer)
+|         ├── 이체 추가(add cog transfer)
+|         └── 이체 편집(edit cog transfer)
+└── 자산(Assets)
+     ├── 자산 목록 (Assets List)
+     |    ├── 자산 추가 (add Assets)
+     |    └── 자산 편집 (edit Assets)
+     ├── 신용카드 목록(Credit Card List)
+     |    ├── 신용카드 추가(add Credit card)
+     |    └── 신용카드 편집(edit Credit card)
+     ├── 총자산 변동추이 그래프(Total Asset Change Graph)
+     ├── 부채구성 그래프(debt graph)
+     ├── 자산구성 그래프(asset graph)
+     ├── 지출(Assets spending)
+     |    ├── 지출 추가(add Assets spending)    
+     |    └── 지출 편집(edit Assets spending)
+     ├── 수입(Assets income)
+     |    ├── 수입 추가 (add Assets income)
+     |    └── 수입 편집 (edit Assets income)
+     └── 이체(Assets transfer)
+          ├── 이체 추가(add Assets transfer)
+          └── 이체 편집(edit Assets transfer)
 ```
