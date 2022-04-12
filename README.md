@@ -13,6 +13,8 @@
 - [Material-UI](https://mui.com/getting-started/templates/) **5.6.0**
 
 ## 참고 사이트
+[카카오 소셜 로그인 로고](https://developers.kakao.com/docs/latest/ko/reference/design-guide)
+[구글 소셜 로그인 로고](https://developers.google.com/identity/branding-guidelines?hl=ko)
 
 
 ## 개발 규칙
@@ -47,7 +49,7 @@ const oneTwoThree;
 
 ```text
 src
-├── assets (프로젝트에서 사용될 이미지 파일들 저장)
+├── Asset (프로젝트에서 사용될 이미지 파일들 저장)
 ├── components
 |   ├── common ( 2개 이상의 컴포넌트에 의해 참조되는 경우 )
 |   |   └── ...
@@ -92,23 +94,23 @@ src
 |    └── 이체(cog transfer)
 |         ├── 이체 추가(add cog transfer)
 |         └── 이체 편집(edit cog transfer)
-└── 자산(Assets)
-     ├── 자산 목록 (Assets List)
-     |    ├── 자산 추가 (add Assets)
-     |    └── 자산 편집 (edit Assets)
+└── 자산(Asset)
+     ├── 자산 목록 (Asset List)
+     |    ├── 자산 추가 (add Asset)
+     |    └── 자산 편집 (edit Asset)
      ├── 신용카드 목록(Credit Card List)
      |    ├── 신용카드 추가(add Credit card)
      |    └── 신용카드 편집(edit Credit card)
      ├── 총자산 변동추이 그래프(Total Asset Change Graph)
      ├── 부채구성 그래프(debt graph)
      ├── 자산구성 그래프(asset graph)
-     ├── 지출(Assets spending)
-     |    ├── 지출 추가(add Assets spending)    
-     |    └── 지출 편집(edit Assets spending)
-     ├── 수입(Assets income)
-     |    ├── 수입 추가 (add Assets income)
-     |    └── 수입 편집 (edit Assets income)
-     └── 이체(Assets transfer)
-          ├── 이체 추가(add Assets transfer)
-          └── 이체 편집(edit Assets transfer)
+     ├── 지출(Asset spending)
+     |    ├── 지출 추가(add Asset spending)    
+     |    └── 지출 편집(edit Asset spending)
+     ├── 수입(Asset income)
+     |    ├── 수입 추가 (add Asset income)
+     |    └── 수입 편집 (edit Asset income)
+     └── 이체(Asset transfer)
+          ├── 이체 추가(add Asset transfer)
+          └── 이체 편집(edit Asset transfer)
 ```

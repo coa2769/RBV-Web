@@ -8,8 +8,13 @@ const App = () => (
     <Route exact path="/">
       <Redirect to='/login'></Redirect>
     </Route>
+
+    <Route exact path="/main">
+      <Redirect to="/main/cog"></Redirect>
+    </Route>
+
     <Route path="/login" component={Login}></Route>
-    <Route path="/main/:type" component={Main}></Route>
+    <Route path="/main" component={Main}></Route>
   </Switch>
 )
 

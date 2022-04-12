@@ -1,5 +1,8 @@
 import React from "react";
-import { Route, Switch } from "react-router";
+import { Link, Route, Switch } from "react-router-dom";
+
+import Cog from '@layouts/Cog';
+import Asset from '@layouts/Asset';
 
 const Main = ()=>{
     ///main/:type
@@ -7,15 +10,17 @@ const Main = ()=>{
     return(
         <div>
             {/* Header */}
-            
-            {/* 지출 or 수입 */}
+            <header>편한 가계부</header>
+            <nav>
+                <ul>
+                    <li> <Link to={"/main/cog"}>장부</Link></li>
+                    <li> <Link to={"/main/asset"}>자산</Link> </li>
+                </ul>
+            </nav>
+            {/* 장부 or 자산 */}
             <Switch>
-                
-            </Switch>
-
-            {/* 지출 or 수입 or 이체 */}
-            <Switch>
-
+                <Route path="/main/cog" component={Cog} />
+                <Route path="/main/asset" component={Asset} />
             </Switch>
 
             메인 여기서 라우팅된다.
