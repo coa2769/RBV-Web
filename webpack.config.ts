@@ -60,7 +60,7 @@ const config: Configuration = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test:/\.(png|svg)$/,
+        test:/\.(png|svg|gif)$/,
         use: [
           {
             loader : 'file-loader',

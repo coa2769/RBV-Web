@@ -13,9 +13,6 @@
 - [Material-UI](https://mui.com/getting-started/templates/) **5.6.0**
 
 ## 참고 사이트
-[카카오 소셜 로그인 로고](https://developers.kakao.com/docs/latest/ko/reference/design-guide)
-[구글 소셜 로그인 로고](https://developers.google.com/identity/branding-guidelines?hl=ko)
-
 
 ## 개발 규칙
 
