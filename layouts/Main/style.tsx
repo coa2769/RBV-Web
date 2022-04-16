@@ -1,30 +1,41 @@
 import styled from '@emotion/styled';
 
+export const RowContainer = styled.div`
+    width : 100%;
+    height : 100%;
+    display : flex;
+    flex-direction : row;
+`;
+
+export const MenuContainer = styled.nav`
+    height:100%;
+    width:200px;
+    background-color:#ECEFF1;
+`;
+
+export const PageContainer = styled.main`
+    flex-basis : calc(100% - 200px);
+`;
+
 
 export const Header = styled.header`
     width : 100%;
-    height : 28px;
-    background : #0069c0;
-
+    height : 60px;
+    padding-left : 24px;
+    display:flex;
+    align-items: center;
+    justify-content: left;
+    color: #455A64;
     h1 {
-        font-size: 14px;
-        color: #fff;
-        font-weight: normal;
-        padding: 5px 5px;
+        margin : 0;
+        padding-left : 10px;
     }
 `;
 
-export const tap_list_style = {
-    background : "#cedff5",
-    'border-style' : 'solid',
-    'border-width' : '0px 0px 1px 0px',
-    'border-color' : '#8db2e3',
-    height : '28px',
-    'padding-bottom' : '2px',
-};
+
 
 export const tap_style = {
-    // color: "#898989",
+    color: "#455A64",
     height : "28px",
     
 }
