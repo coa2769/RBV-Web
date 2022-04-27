@@ -3,6 +3,8 @@ import { Redirect, Route, Switch } from 'react-router';
 import Login from '@pages/Login';
 import Main from '@layouts/Main';
 
+import '@components/common/common.css';
+
 const App = () => (
   <Switch>
     <Route exact path="/">

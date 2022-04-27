@@ -1,12 +1,20 @@
 import React, { useState, useCallback } from "react";
 import { Route, Switch, RouteComponentProps } from "react-router-dom";
-import { Header, PageContainer, tap_style, menu_style, MenuContainer, RowContainer } from '@layouts/Main/style'
+import { 
+    Header, 
+    PageContainer, 
+    tab_style, 
+    menu_style, 
+    MenuContainer, 
+    RowContainer,
+    DateContainer,
+    date_field_style,
+    DateTextField } from '@layouts/Main/style'
 
 import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabUnstyled from '@mui/base/TabUnstyled';
 
-import TextField from '@mui/material/TextField';
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 // import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -20,9 +28,8 @@ const Main = (props : RouteComponentProps)=>{
         props.location.pathname.replace(/\/main\//, '')
     );
     
-    const today = new Date();
     const [startDate, setStartDate] = useState('2022-03-10');
-    const [endDate, setEndDate] = useState(`${today.getFullYear()}-${(today.getMonth() + 1)>9?today.getMonth() + 1 : '0' + (today.getMonth()+1)}-${today.getDate()}`);
+    const [endDate, setEndDate] = useState(new Date(+new Date() + 3240 * 10000).toISOString().split("T")[0]);
 
     const onChangeStartDate = useCallback(
         (event : React.ChangeEvent<HTMLInputElement>)=>{
@@ -48,38 +55,34 @@ const Main = (props : RouteComponentProps)=>{
                 </Header>
                 <TabsUnstyled defaultValue={"cog"}>
                     <TabsListUnstyled style={menu_style} component={"ul"}>
-                        <TabUnstyled onChange={onChangeTab} value="cog" style={tap_style} component={"li"}>장부</TabUnstyled>
-                        <TabUnstyled onChange={onChangeTab} value="asset" style={tap_style} component={"li"}>자산</TabUnstyled>
-                        <TabUnstyled onChange={onChangeTab} value="graph" style={tap_style} component={"li"}>그래프</TabUnstyled>
+                        <TabUnstyled onChange={onChangeTab} value="cog" style={tab_style} component={"li"}>장부</TabUnstyled>
+                        <TabUnstyled onChange={onChangeTab} value="asset" style={tab_style} component={"li"}>자산</TabUnstyled>
+                        <TabUnstyled onChange={onChangeTab} value="graph" style={tab_style} component={"li"}>그래프</TabUnstyled>
                     </TabsListUnstyled>
                 </TabsUnstyled>
             </MenuContainer>
             <PageContainer>
-            {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker 
-                    label="기간"
-                    value={value}
-                    onChange={(newValue)=>{
-                        setValue(newValue);
-                    }}
-                    renderInput={(params)=>  <TextField {...params} /> }
-                />
-            </LocalizationProvider> */}
-                <TextField
-                    label="시작"
-                    type="date"
-                    defaultValue={startDate}
-                    margin="normal"
-                    onChange={onChangeStartDate}
-                />
-
-                <TextField 
-                    label="끝"
-                    type="date"
-                    defaultValue={endDate}
-                    margin="normal"
-                    onChange={onChangeEndDate}
-                />
+                <DateContainer>
+                    <DateTextField
+                        label="시작"
+                        type="date"
+                        defaultValue={startDate}
+                        margin="normal"
+                        onChange={onChangeStartDate}
+                        style={date_field_style}
+                        size="small"
+                    />
+                    <span>~</span>
+                    <DateTextField 
+                        label="끝"
+                        type="date"
+                        defaultValue={endDate}
+                        margin="normal"
+                        onChange={onChangeEndDate}
+                        style={date_field_style}
+                        size="small"
+                    />
+                </DateContainer>
                 <Switch>
                     <Route path="/main/cog" component={Cog} />
                     <Route path="/main/asset" component={Asset} />
@@ -87,7 +90,6 @@ const Main = (props : RouteComponentProps)=>{
                 </Switch>    
             </PageContainer>
         </RowContainer>
-  
     )
 }
 

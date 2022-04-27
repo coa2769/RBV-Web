@@ -6,13 +6,13 @@ type LoginButtonProps = {
 }
 
 export const Main = styled.main`
-    background : rgb(38, 40, 46);
+    background : var(--base-page-background-color);
     display : flex;
     flex-direction : column;
     justify-content: center;
     align-items : center;
     height : 100%;
-    color : #fff;
+    color : var(--base-font-color);
 `;
 
 export const Container = styled.div`
