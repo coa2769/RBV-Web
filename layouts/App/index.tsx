@@ -12,7 +12,7 @@ const App = () => (
     </Route>
 
     <Route exact path="/main">
-      <Redirect to="/main/cog"></Redirect>
+      <Redirect to="/main/book"></Redirect>
     </Route>
 
     <Route path="/login" component={Login}></Route>

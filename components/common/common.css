@@ -1,13 +1,20 @@
 :root{
-    /* 색상 */
-    --base-background-color : rgb(38, 40, 46);
-    --base-tab-background-color : rgb(31, 32, 34);
-    --base-page-background-color : rgb(233, 236, 244);
-    --base-font-color : rgb(0, 0, 0);
+    /* << 색상 >> */
+    /* login page */
+    --login-background-page-color : rgb(233, 236, 244);
+    --login-title-font-color : rgb(0,0,0);
 
-    --border-color : rgb(66, 67, 75);
+    /* Main page */
+    --header-background-color : #292c2f;
+    --header-border-bottom-color : #ccc;
+    --header-font-color : #fff;
+    --header-tab-selected-font-color : #608bd2;
+    --header-select-border-color : #fff; 
+
+    --main-page-background-color : rgb(234, 240, 242);
 
     /* 크기 */
-
-
+    /* Main page */
+    --header-height : 80px;
+    --date-height : 64px;
 }

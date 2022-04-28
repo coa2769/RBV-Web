@@ -1,139 +1,87 @@
 import styled from '@emotion/styled';
-import { CSSProperties } from "react";
 
-import CalendarIcon from '@Assets/calendar_21.svg';
-import test from '@Assets/Google__G__Logo.svg';
-
-import TextField from '@mui/material/TextField';
-
-export const RowContainer = styled.div`
+export const HeaderContainer = styled.header`
     width : 100%;
-    height : 100%;
-    display : flex;
-    flex-direction : row;
-`;
+    height : var(--header-height);
 
-export const MenuContainer = styled.nav`
-    height:100%;
-    width:200px;
-    background : var(--base-tab-background-color);
-    border-right: 1px solid var(--border-color);
+    background-color: var(--header-background-color);
+    box-shadow: 0 1px 1px var(--header-border-bottom-color);
+    color: var(--header-font-color);
 
-    li{
-        border-left: 4px solid transparent;
+    padding : 20px 40px;
+
+    h1 {
+        float : left;
+        margin : 0;
     }
 
-    li.Mui-selected {
-        border-left: 4px solid #FF6E40;
+    .TabsUnstyled-root {
+        line-height : 40px;
+        float : left;
+        margin : 0 0 0 60px;
+        padding 0;
+
+        a {
+            font-size : 14px;
+            display : inline-block;
+            padding : 0 5px;
+            opacity : 0.9;
+            text-decoration : none;
+            color: var(--header-font-color);
+        }
+
+        a.Mui-selected {
+            color : var(--header-tab-selected-font-color);
+        }
+    }
+
+    .header-right {
+        float : right;
+
+        .logout-style {
+            margin-left : 10px;
+            color : var(--header-font-color);
+        }
+
+        .team-select-style{
+            
+            .MuiInputLabel-root {
+                color : var(--header-font-color);
+            }
+            .MuiOutlinedInput-root {
+                color : var(--header-font-color);
+            }
+            .MuiSvgIcon-root{
+                color : var(--header-font-color);
+            }
+            .MuiOutlinedInput-notchedOutline{
+                border-color : var(--header-select-border-color);
+
+            }
+        }
     }
 `;
+
 
 export const PageContainer = styled.main`
-    flex-basis : calc(100% - 200px);
+    background-color : var(--main-page-background-color);
+    height : calc(100% - var(--header-height));
 `;
-
-export const Header = styled.header`
-    width : 100%;
-    height : 60px;
-    
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--base-font-color);
-    h1 {
-        margin : 0;
-        letter-spacing: 2px;
-    }
-`;
-
-export const menu_style : CSSProperties = {
-    margin : '0',
-    padding : '0',
-    height : 'calc(100% - 60px)',
-    listStyle : 'none',
-};
-
-
-export const tab_style : CSSProperties = {
-    color: "var(--base-font-color)",
-    height : "49px",
-    cursor : 'pointer',
-    fontSize : '14px',
-    fontWeight : 500,
-    lineHeight : '3.5',
-    textAlign : 'center' as const,
-    
-};
 
 export const DateContainer = styled.div`
     display : flex;
     align-items : center;
     justify-content : center;
 
-    background-color : var(--base-background-color);
+    height : var(--date-height);
 
     span {
         padding : 0 10px;
-        color : var(--base-font-color);
+        color : var(--date-font-color);
     }
 
+    .date-field-style{
+
+    }
 `;
 
-export const date_field_style : CSSProperties = {
-    color : 'var(--base-font-color)',
-    
-};
-
-export const DateTextField = styled(TextField)({
-    
-    '& label' : {
-        color : 'var(--base-font-color)',
-    },
-    '& label.Mui-focused': {
-        color: 'var(--base-font-color)',
-    },
-    
-    '& .MuiOutlinedInput-root' : {
-        '& input' : {
-            color : 'var(--base-font-color)',
-        },
-        '& input[type="date"]::-webkit-calendar-picker-indicator' : {
-            background : `url(${CalendarIcon})`,
-            width: '13px',
-            height: '13px',
-            filter: 'grayscale(1) invert(1)',
-        },
-        '& fieldset': {
-            borderColor: 'var(--base-font-color)',
-        },
-        '&.Mui-focused fieldset' : {
-            borderColor: 'var(--base-font-color)',
-        },
-        '&:hover fieldset': {
-            borderColor: 'var(--base-font-color)',
-        },
-    },
-    '& MuiOutlinedInput-input' : {
-        color : 'var(--base-fontt-color)',
-    }
-});
-
-export const ValidationTextField = styled(TextField)({
-    '& label.Mui-focused': {
-        color: 'green',
-      },
-      '& .MuiInput-underline:after': {
-        borderBottomColor: 'green',
-      },
-      '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-          borderColor: 'red',
-        },
-        '&:hover fieldset': {
-          borderColor: 'yellow',
-        },
-        '&.Mui-focused fieldset': {
-          borderColor: 'green',
-        },
-      },
-  });
