@@ -9,8 +9,12 @@ export const Container = styled.div`
 `;
 
 export const ColumContainer = styled.div`
-    width : 330px;
+    width : var(--book-left-width);
     
+`;
+
+export const GraphContainer = styled.div`
+    margin : 5px 10px;
 `;
 
 export const MainContainer = styled.div`

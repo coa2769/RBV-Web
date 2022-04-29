@@ -3,21 +3,21 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
     margin : 5px 10px;
     padding-bottom : 3px;
-    background : #fff;
+    background : var(--householdhistory-background-color);
 
     .summary-info {
         margin : 5px;
         padding : 5px;
         width : 96%;
         font-size : 12;
-        border : 1px dotted #999;
-        color : #555;
+        border : 1px dotted var(--householdhistory-bordoer-color);
+        color : var(--householdhistory-font-color);
         text-align : center;
     }
 `;
 
 export const AppBar = styled.div`
-    background : #b8bebf;
+    background : var(--householdhistory-bar-background-color);
     padding : 5px 10px;
 
     h4 {

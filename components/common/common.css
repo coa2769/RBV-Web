@@ -4,7 +4,7 @@
     --login-background-page-color : rgb(233, 236, 244);
     --login-title-font-color : rgb(0,0,0);
 
-    /* Main page */
+    /* Main layout */
     --header-background-color : #292c2f;
     --header-border-bottom-color : #ccc;
     --header-font-color : #fff;
@@ -13,8 +13,18 @@
 
     --main-page-background-color : rgb(234, 240, 242);
 
+    /* HouseholdHistory Page */
+    --householdhistory-background-color : #fff;
+    --householdhistory-bar-background-color : #b8bebf;
+    --householdhistory-bordoer-color : #999;
+    --householdhistory-font-color : #555;
+
     /* 크기 */
     /* Main page */
     --header-height : 80px;
     --date-height : 64px;
+
+    /* Book layout */
+    --book-left-width : 330px;
 }
+
