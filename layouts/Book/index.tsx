@@ -10,19 +10,23 @@ import{
 import HouseholdHistory from "@pages/HouseholdHistory";
 import BookSpendingGraph from "@pages/BookSpendingGraph";
 import BookIcomeGraph from "@pages/BookIcomeGraph";
+import BookSpending from "@pages/BookSpending";
+import BookIcome from "@pages/BookIncome";
+import BookTransfer from "@pages/BookTransfer";
 
-import TabsUnstyled from '@mui/base/TabsUnstyled';
-import TabsListUnstyled from '@mui/base/TabsListUnstyled';
-import TabUnstyled from '@mui/base/TabUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
+import Tabs from '@components/Tabs';
 
 const Book = ()=>{
     const [ currentGraphTab, setCurrentGraphTab ] = useState("spending");
     const [ currentMainTab, setCurrentMainTab ] = useState("spending");
 
     const onChangeGraphTab = (event: React.SyntheticEvent, newValue: number | string) => {
-        console.log(newValue);
         setCurrentGraphTab( typeof(newValue) === 'string'? newValue : newValue.toString());
+    };
+
+    const onChangeMainTab = (event: React.SyntheticEvent, newValue: number | string)=>{
+      setCurrentMainTab( typeof(newValue) === 'string'? newValue : newValue.toString());
     };
 
 
@@ -31,40 +35,29 @@ const Book = ()=>{
             <ColumContainer>
                 <HouseholdHistory></HouseholdHistory>
                 <GraphContainer>
-                  
-                  <TabsUnstyled defaultValue={"spending"} className={"graph-tab-container"}>
-                    <TabsListUnstyled className="graph-tab-list">
-                      <TabUnstyled onChange={onChangeGraphTab} className={"graph-tab"} value={"spending"}>지출</TabUnstyled>
-                      <TabUnstyled onChange={onChangeGraphTab} className={"graph-tab"} value={"income"}>수입</TabUnstyled>
-                    </TabsListUnstyled>
-
+                  <Tabs defaultValue="spending" tabArray={[{value : "spending", label : "지출"}, {value : "income", label : "수입"}]}>
                     <TabPanelUnstyled value={"spending"}>
                       <BookSpendingGraph></BookSpendingGraph>
                     </TabPanelUnstyled>
                     <TabPanelUnstyled value={"income"}>
                       <BookIcomeGraph></BookIcomeGraph>
                     </TabPanelUnstyled>
-
-                  </TabsUnstyled>
-
+                  </Tabs>
                 </GraphContainer>
             </ColumContainer>
 
             <MainContainer>
-              <TabsUnstyled defaultValue={"spending"} className={"main-tab-container"}>
-                <TabsListUnstyled className="main-tab-list">
-                  <TabUnstyled onChange={onChangeGraphTab} className={"main-tab"} value={"spending"}>지출</TabUnstyled>
-                  <TabUnstyled onChange={onChangeGraphTab} className={"main-tab"} value={"income"}>수입</TabUnstyled>
-                </TabsListUnstyled>
-
+              <Tabs defaultValue="spending" tabArray={[{value : "spending", label : "지출"}, {value : "income", label : "수입"}, {value : "transfer", label : "이체"}]}>
                 <TabPanelUnstyled value={"spending"}>
-                  <BookSpendingGraph></BookSpendingGraph>
+                  <BookSpending></BookSpending>
                 </TabPanelUnstyled>
                 <TabPanelUnstyled value={"income"}>
-                  <BookIcomeGraph></BookIcomeGraph>
+                  <BookIcome></BookIcome>
                 </TabPanelUnstyled>
-
-              </TabsUnstyled>
+                <TabPanelUnstyled value={"transfer"}>
+                  <BookTransfer></BookTransfer>
+                </TabPanelUnstyled>
+              </Tabs>
             </MainContainer>
         </Container>
     )
