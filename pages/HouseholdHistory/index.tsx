@@ -7,14 +7,14 @@ import {
 } from '@pages/HouseholdHistory/style';
 
 const HouseholdHistory = ()=>{
-    const startDate = useState('2022-03-10');
-    const endDate = useState('2022-04-09');
+    const [ startDate, setStartDate ] = useState('2022-03-10');
+    const [ endDate, setEndDate ] = useState('2022-04-09');
 
-    const income = useState('4,790,323');
-    const spending = useState('722,952');
-    const cashSpending = useState('722,952');
-    const cardSpending = useState('0');
-    const totalAmount = useState('4,067,371');
+    const [ income, setIncome ] = useState('4,790,323');
+    const [ spending, setSpending ] = useState('722,952');
+    const [ cashSpending, setCashSpending ] = useState('722,952');
+    const [ cardSpending, setCardSpending ] = useState('0');
+    const [ totalAmount, setTotalAmount ] = useState('4,067,371');
 
     return (
         <Container>

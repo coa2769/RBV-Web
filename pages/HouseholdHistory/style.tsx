@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-    margin : 5px 10px;
     padding-bottom : 3px;
     background : var(--householdhistory-background-color);
+
+    height : var(--householdhistory-height);
 
     .summary-info {
         margin : 5px;
@@ -17,6 +18,7 @@ export const Container = styled.div`
 `;
 
 export const AppBar = styled.div`
+    height : 30px;
     background : var(--householdhistory-bar-background-color);
     padding : 5px 10px;
 

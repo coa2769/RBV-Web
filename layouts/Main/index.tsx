@@ -1,14 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Route, Switch, Link, RouteComponentProps } from "react-router-dom";
-// import { 
-//     Title, 
-//     PageContainer, 
-//     tab_style, 
-//     menu_style, 
-//     MenuContainer, 
-//     RowContainer,
-//     PageTopContainer,
-//     DateContainer } from '@layouts/Main/style';
+import { Route, Switch, RouteComponentProps } from "react-router-dom";
 
 import {
     HeaderContainer,
@@ -70,9 +61,8 @@ const Main = (props : RouteComponentProps)=>{
                 <h1>LOGO</h1>
                 <TabsUnstyled defaultValue={"book"}>
                     <TabsListUnstyled component={"nav"}>
-                        <TabUnstyled onChange={onChangeTab} value="book" component={Link} to="/main/book">장부</TabUnstyled>
-                        <TabUnstyled onChange={onChangeTab} value="asset" component={Link} to="/main/asset">자산</TabUnstyled>
-                        <TabUnstyled onChange={onChangeTab} value="graph" component={Link} to="/main/graph">그래프</TabUnstyled>
+                        <TabUnstyled onChange={onChangeTab} value="book">장부</TabUnstyled>
+                        <TabUnstyled onChange={onChangeTab} value="asset">자산</TabUnstyled>
                     </TabsListUnstyled>
                 </TabsUnstyled>
 
@@ -86,7 +76,7 @@ const Main = (props : RouteComponentProps)=>{
                         >
                         {teams.map((value)=>{
                             return(
-                                <MenuItem value={value.name}>{value.name}</MenuItem>
+                                <MenuItem value={value.name} key={value.name}>{value.name}</MenuItem>
                             )
                         })}
                         </Select>

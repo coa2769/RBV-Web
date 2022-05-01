@@ -10,6 +10,7 @@ export const HeaderContainer = styled.header`
 
     padding : 20px 40px;
 
+
     h1 {
         float : left;
         margin : 0;
@@ -21,16 +22,24 @@ export const HeaderContainer = styled.header`
         margin : 0 0 0 60px;
         padding 0;
 
-        a {
-            font-size : 14px;
+        button {
+            background : transparent;
+            border : 0;
+            outline : 0;
+
+            height : 100%;
+
+            font-size : 16px;
             display : inline-block;
             padding : 0 5px;
             opacity : 0.9;
             text-decoration : none;
             color: var(--header-font-color);
+
+            cursor : pointer;
         }
 
-        a.Mui-selected {
+        button.Mui-selected {
             color : var(--header-tab-selected-font-color);
         }
     }
@@ -61,7 +70,6 @@ export const HeaderContainer = styled.header`
         }
     }
 `;
-
 
 export const PageContainer = styled.main`
     background-color : var(--main-page-background-color);
