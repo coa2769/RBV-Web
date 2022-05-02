@@ -11,7 +11,7 @@
 - [axios](https://www.npmjs.com/package/axios) **021.1**
 - [React-Router](https://v5.reactrouter.com/web/guides/quick-start) **5.2.0**
 - [Material-UI](https://mui.com/getting-started/templates/) **5.6.0**
-- [Chart.js](https://www.chartjs.org/docs/latest/)
+- [Rechars](https://recharts.org/en-US)
 ## 참고 사이트
 
 ## 개발 규칙

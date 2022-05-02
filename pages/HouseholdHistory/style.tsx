@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-    padding-bottom : 3px;
     background : var(--householdhistory-background-color);
 
     height : var(--householdhistory-height);

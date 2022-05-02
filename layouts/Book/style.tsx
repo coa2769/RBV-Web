@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+// import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 
 
 export const Container = styled.div`
@@ -23,3 +24,7 @@ export const GraphContainer = styled.div`
 export const MainContainer = styled.div`
     width : calc(100% - var(--book-left-width));
 `;
+
+// export const GraphTabPanel = styled(TabPanelUnstyled)`
+//     height : calc(100% - var)
+// `;

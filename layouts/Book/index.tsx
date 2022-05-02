@@ -18,16 +18,6 @@ import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import Tabs from '@components/Tabs';
 
 const Book = ()=>{
-    const [ currentGraphTab, setCurrentGraphTab ] = useState("spending");
-    const [ currentMainTab, setCurrentMainTab ] = useState("spending");
-
-    const onChangeGraphTab = (event: React.SyntheticEvent, newValue: number | string) => {
-        setCurrentGraphTab( typeof(newValue) === 'string'? newValue : newValue.toString());
-    };
-
-    const onChangeMainTab = (event: React.SyntheticEvent, newValue: number | string)=>{
-      setCurrentMainTab( typeof(newValue) === 'string'? newValue : newValue.toString());
-    };
 
 
     return(

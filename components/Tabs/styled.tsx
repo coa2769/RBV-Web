@@ -27,4 +27,9 @@ export const Container = styled(TabsUnstyled)`
     .Mui-selected{
         background : #fff;
     }
+
+    .TabPanelUnstyled-root {
+        height : calc(100% - 30px);
+    }
+
 `;
