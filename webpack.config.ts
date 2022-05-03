@@ -79,7 +79,12 @@ const config: Configuration = {
       //   files: "./src/**/*",
       // },
     }),
-    new webpack.EnvironmentPlugin({ NODE_ENV: isDevelopment ? 'development' : 'production' }),
+    new webpack.EnvironmentPlugin({ 
+      NODE_ENV: isDevelopment ? 'development' : 'production',
+      FRONTEND_PORT : 3090,
+      DEV_SERVER_URL : 'http://localhost',
+      PROD_SERVER_URL : 'https://sleact.nodebird.com',
+    }),
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -88,9 +93,16 @@ const config: Configuration = {
   },
   devServer: {
     historyApiFallback: true,
-    port: 3090,
+    port: 3090, //FRONTEND_PORT이다.
     devMiddleware: { publicPath: '/dist/' },
     static: { directory: path.resolve(__dirname) },
+    proxy : {
+      '/oauth2/' : {
+        target : 'http://localhost:8080', //소셜 로그인을 위해 준비된 서버 URL
+        changeOrigin : true,
+        ws : true,
+      }
+    }
     // hot : false,
   },
 };
