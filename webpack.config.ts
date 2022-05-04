@@ -93,15 +93,22 @@ const config: Configuration = {
   },
   devServer: {
     historyApiFallback: true,
+    hot : true,
     port: 3090, //FRONTEND_PORT이다.
     devMiddleware: { publicPath: '/dist/' },
     static: { directory: path.resolve(__dirname) },
+
     proxy : {
-      '/oauth2/' : {
-        target : 'http://localhost:8080', //소셜 로그인을 위해 준비된 서버 URL
-        changeOrigin : true,
-        ws : true,
-      }
+      // '/api/': {
+      //   target: 'http://localhost:3095',
+      //   changeOrigin: true,
+      //   ws: true,
+      // },
+      // '/oauth2/' : {
+      //   target : 'http://localhost:8080', //소셜 로그인을 위해 준비된 서버 URL
+      //   changeOrigin : true,
+      //   ws : true,
+      // }
     }
     // hot : false,
   },

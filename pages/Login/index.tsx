@@ -42,15 +42,31 @@ const Login = ()=>{
         }
     ]);
 
-    // const [LoginSuccess, setLoginSuccess] = useState(false);
+    const [LoginSuccess, setLoginSuccess] = useState(false);
 
     const onClick = useCallback(
         (e)=>{
             // setLogInError(false);
+            console.log(e.target.value);
+            console.log(process.env.DEV_SERVER_URL);
+            console.log(process.env.FRONTEND_PORT);
+            // axios.post(
+            //     'api/users',
+            //     {
+            //         "email" : "test222@naver.com",
+            //         "nickname" : "ccc",
+            //         "password" : "qwe123"
+            //     },
+            //     {
+            //         withCredentials: true,
+            //     },)
+            //     .then((response)=>{
+            //         console.log(response.data);
+            //     })
 
-            axios
-                .get(
-                    `/oauth2/authorization/${e.target.value}?redirect_uri=${process.env.DEV_SERVER_URL}:${process.env.FRONTEND_PORT}/main`,
+            axios.get(
+                    `oauth2/authorization/${e.target.value}?redirect_uri=http://localhost:3090/main`,
+                    // `oauth2/text`,
                     {
                         withCredentials: true,
                     },
@@ -68,15 +84,33 @@ const Login = ()=>{
         []
     );
 
-    // if(LoginSuccess){
-    //     console.log('로그인됨');
-    //     return <Redirect to="/main" />;
-    // }
+    if(LoginSuccess){
+        console.log('로그인됨');
+        return <Redirect to="/main" />;
+    }
     
     return (
         <div>
             <Main>
                 <h1>가계부에 로그인 해주세요</h1>
+{/* 
+    [ 에러 이유 ]
+    /oauth/authorize를 Ajax로 호출하셨나요?
+    /oauth/authorize는 리다이렉트 URI로 302 리다이렉트를 해야하기때문에 Ajax 호출하시면 안되고
+    a href 링크로 호출해보시겠어요?
+
+    authorize CORS에러의 원인은 비동기 통신 함수(XMLHttpRequest) 를 이용해서 발생합니다.
+
+    [ 해결 방안 ]
+    a tag사용
+
+
+    https://kakao-tam.tistory.com/81?category=872536
+    https://kakao-tam.tistory.com/59?category=866966
+*/}
+
+                <a href="http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:3090/main">google</a>
+
                 <Container>
                     <ul>
                         {

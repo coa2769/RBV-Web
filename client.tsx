@@ -8,8 +8,8 @@ import axios from 'axios';
 import App from './layouts/App';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL =
-  process.env.NODE_ENV === 'production' ? process.env.PROD_SERVER_URL : `${process.env.DEV_SERVER_URL}:${process.env.FRONTEND_PORT}`;
+axios.defaults.baseURL = 'http://localhost:8080'
+  // process.env.NODE_ENV === 'production' ? process.env.PROD_SERVER_URL : `${process.env.DEV_SERVER_URL}:${process.env.FRONTEND_PORT}`;
 
 render(
   <BrowserRouter>
