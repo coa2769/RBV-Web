@@ -1,21 +1,15 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import { Main ,Container, LoginButton } from '@pages/Login/styled';
-import { Redirect } from 'react-router-dom';
-
-import useSWR from 'swr';
 
 import KakaotalkIcon from '@Assets/kakaotalk-seeklogo.com.svg';
 import AppleIcon from '@Assets/Apple_logo_black.svg';
 import GoogleIcon from '@Assets/Google__G__Logo.svg';
 
-import fetcher from "@utils/fetcher";
-import axios from "axios";
-
 const Login = ()=>{
 
-    // const {data : userData, error, mutate } = useSWR('/api/users', fetcher);
+    // const {data : userData, error, mutate } = useSWR('/api/me', fetcher);
     // const [logInError, setLogInError] = useState(false);
-
+    // console.log(userData);
 
     const [ socials, setSocials ] = useState([
         {
@@ -42,52 +36,13 @@ const Login = ()=>{
         }
     ]);
 
-    const [LoginSuccess, setLoginSuccess] = useState(false);
-
     const onClick = useCallback(
-        (e)=>{
-            // setLogInError(false);
-            console.log(e.target.value);
-            console.log(process.env.DEV_SERVER_URL);
-            console.log(process.env.FRONTEND_PORT);
-            // axios.post(
-            //     'api/users',
-            //     {
-            //         "email" : "test222@naver.com",
-            //         "nickname" : "ccc",
-            //         "password" : "qwe123"
-            //     },
-            //     {
-            //         withCredentials: true,
-            //     },)
-            //     .then((response)=>{
-            //         console.log(response.data);
-            //     })
-
-            axios.get(
-                    `oauth2/authorization/${e.target.value}?redirect_uri=http://localhost:3090/main`,
-                    // `oauth2/text`,
-                    {
-                        withCredentials: true,
-                    },
-                )
-                .then((response)=>{
-                    console.log('응답 옴');
-                    console.log(response.data);
-                })
-                .catch((error)=>{
-                    console.error(error);
-                });
-
-            // setLoginSuccess(true);
+        (e : React.MouseEvent<HTMLButtonElement>)=>{
+            //자신의 자식으로 있는 a tag를 클릭하는 이벤트
+            e.currentTarget.querySelector('a')?.click();
         },
         []
     );
-
-    if(LoginSuccess){
-        console.log('로그인됨');
-        return <Redirect to="/main" />;
-    }
     
     return (
         <div>
@@ -108,39 +63,23 @@ const Login = ()=>{
     https://kakao-tam.tistory.com/81?category=872536
     https://kakao-tam.tistory.com/59?category=866966
 */}
-
-                <a href="http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:3090/main">google</a>
-
                 <Container>
                     <ul>
                         {
                             socials.map((value, index)=>(
                                 <li key={index}>
-                                    <LoginButton onClick={onClick} background={value.background} color={value.fontColor} value={value.socialType}>
+                                    <LoginButton 
+                                        onClick={onClick}
+                                        background={value.background} 
+                                        color={value.fontColor}
+                                    >
                                         <img src={value.image} alt={value.label} />
                                         {value.label}
+                                        <a href={`${process.env.DEV_SERVER_URL}:${process.env.BACKEND_PORT}/oauth2/authorization/${value.socialType}?redirect_uri=${process.env.DEV_SERVER_URL}:${process.env.FRONTEND_PORT}/main/book`}>google</a>
                                     </LoginButton>
                                 </li>
                             ))
                         }
-                        {/* <li>
-                            <LoginButton onClick={onClick} background={'#FEE500'} color={'rgb(60, 30, 30)'} >
-                                <img src={KakaotalkIcon} alt="카카오톡 로그인" />
-                                카카오 로그인
-                            </LoginButton>
-                        </li>
-                        <li>
-                            <LoginButton onClick={onClick} background={'#FFFFFF'} color={'rgba(0, 0, 0, 0.9)'}>
-                                <img src={GoogleIcon} alt="구글 로그인" />
-                                구글 로그인
-                            </LoginButton>
-                        </li>
-                        <li>
-                            <LoginButton onClick={onClick} background={'#FFFFFF'} color={'rgba(0, 0, 0, 0.9)'}>
-                                <img src={AppleIcon} alt="애플 로그인" />
-                                애플 로그인
-                            </LoginButton>
-                        </li> */}
                     </ul>
                 </Container>
             </Main>

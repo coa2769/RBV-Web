@@ -51,3 +51,26 @@ export const LoginButton = styled.button<LoginButtonProps>`
         height : 26px;
     } 
 `;
+
+// export const LoginButton = styled.li<LoginButtonProps>`
+//     font-family: inherit;    
+//     font-size : 15px;
+//     font-weight : 700;
+//     cursor : pointer;
+
+//     text-decoration-line : none;
+
+//     border : 0px none transparent;
+//     padding : 0px;
+//     background : ${(props) => props.background };
+//     width : 100%;
+//     height : 52px;
+//     border-radius : 4px 4px 4px 4px;
+//     position : relative;
+
+//     img {
+//         float : left;
+//         width : 26px;
+//         height : 26px;
+//     } 
+// `;

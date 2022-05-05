@@ -82,6 +82,7 @@ const config: Configuration = {
     new webpack.EnvironmentPlugin({ 
       NODE_ENV: isDevelopment ? 'development' : 'production',
       FRONTEND_PORT : 3090,
+      BACKEND_PORT : 8080,
       DEV_SERVER_URL : 'http://localhost',
       PROD_SERVER_URL : 'https://sleact.nodebird.com',
     }),

@@ -22,15 +22,24 @@ import TabUnstyled from '@mui/base/TabUnstyled';
 import Book from '@layouts/Book';
 import Asset from '@layouts/Asset';
 
+import useSWR from 'swr';
+import fetcher from "@utils/fetcher";
+import { getToken } from "@utils/utils";
+import axios from "axios";
+import queryString from 'query-string';
+
 const Main = (props : RouteComponentProps)=>{
-    //
+    const { data : token, mutate } = useSWR<string>("token", getToken);
+    
+    // const {data : userData, error, mutate } = useSWR('/api/me', fetcher);
+
     const [ currentTab, setCurrentTab ] = useState(
         props.location.pathname.replace(/\/main\//, '')
     );
     const [startDate, setStartDate] = useState('2022-03-10');
     const [endDate, setEndDate] = useState(new Date(+new Date() + 3240 * 10000).toISOString().split("T")[0]);
     const [teams, setTeams] = useState([{name : 'team1'}, {name : 'team2'}, {name : 'team3'}, {name : 'team4'}]);
-    const [currentTeam, setCurrentTeam] = useState('team1');
+    const [currentTeam, setCurrentTeam] = useState('team1');    
 
     //
     const onChangeStartDate = useCallback(
@@ -53,6 +62,15 @@ const Main = (props : RouteComponentProps)=>{
         (event : SelectChangeEvent)=>{
             setCurrentTeam(event.target.value);
         }, [currentTeam]);
+
+    //querystring에 token이 있다면 swr에 저장하기
+    const query = queryString.parse(props.location.search);
+    if(query.token !== undefined && token !== ''){
+        console.log('call', query.token);
+        mutate(typeof(query.token) === 'string'? query.token : '');
+        console.log(token);
+    //     // mutate(query.token !== null? query.token : '');
+    }
 
 
     return(
