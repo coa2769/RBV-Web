@@ -22,15 +22,16 @@ import TabUnstyled from '@mui/base/TabUnstyled';
 import Book from '@layouts/Book';
 import Asset from '@layouts/Asset';
 
+import useToken from "@hooks/useToken";
 import useSWR from 'swr';
 import fetcher from "@utils/fetcher";
-import { getToken } from "@utils/utils";
+// import { getToken } from "@utils/utils";
 import axios from "axios";
 import queryString from 'query-string';
 
 const Main = (props : RouteComponentProps)=>{
-    const { data : token, mutate } = useSWR<string>("token", getToken);
-    
+
+    const { data : token, mutate } = useToken();
     // const {data : userData, error, mutate } = useSWR('/api/me', fetcher);
 
     const [ currentTab, setCurrentTab ] = useState(
@@ -65,12 +66,22 @@ const Main = (props : RouteComponentProps)=>{
 
     //querystring에 token이 있다면 swr에 저장하기
     const query = queryString.parse(props.location.search);
-    if(query.token !== undefined && token !== ''){
-        console.log('call', query.token);
-        mutate(typeof(query.token) === 'string'? query.token : '');
-        console.log(token);
-    //     // mutate(query.token !== null? query.token : '');
+    if(query.token !== undefined && token === ''){
+        // console.log(query.token);
+        // mutate('titititit');
+        // console.log(typeof(query.token) === 'string'? query.token : '');
+        let temp : string = typeof(query.token) === 'string'? query.token : '';
+        mutate(temp);
     }
+    // console.log(token);
+    
+    // const query = queryString.parse(props.location.search);
+    // if(query.token !== undefined && token !== ''){
+    //     console.log('call', query.token);
+    //     mutate(typeof(query.token) === 'string'? query.token : '');
+    //     console.log(token);
+    // //     // mutate(query.token !== null? query.token : '');
+    // }
 
 
     return(

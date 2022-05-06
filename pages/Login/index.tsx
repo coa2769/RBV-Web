@@ -75,7 +75,7 @@ const Login = ()=>{
                                     >
                                         <img src={value.image} alt={value.label} />
                                         {value.label}
-                                        <a href={`${process.env.DEV_SERVER_URL}:${process.env.BACKEND_PORT}/oauth2/authorization/${value.socialType}?redirect_uri=${process.env.DEV_SERVER_URL}:${process.env.FRONTEND_PORT}/main/book`}>google</a>
+                                        <a href={`${process.env.DEV_SERVER_URL}:${process.env.BACKEND_PORT}/oauth2/authorization/${value.socialType}?redirect_uri=${process.env.DEV_SERVER_URL}:${process.env.FRONTEND_PORT}/main/book`}></a>
                                     </LoginButton>
                                 </li>
                             ))
