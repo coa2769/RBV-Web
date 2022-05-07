@@ -5,17 +5,23 @@ import useSWR from "swr";
 declare global {
     interface Window { 
         token : string,
-        count : number
+        // count : number
     }
 }
 
-const useToken = ()=>{
+const useToken = (value : string | undefined)=>{
     const { data, mutate } = useSWR('token', ()=>window.token)
+
+    if(value !== undefined){
+        window.token = value;
+        mutate();
+    }
+
     return {
         data : data || '',
         mutate: (tok : string)=>{
         window.token = tok;
-        mutate();
+        return mutate();
     }}
 };
 

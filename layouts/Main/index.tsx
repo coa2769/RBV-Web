@@ -31,7 +31,8 @@ import queryString from 'query-string';
 
 const Main = (props : RouteComponentProps)=>{
 
-    const { data : token, mutate } = useToken();
+    const query = queryString.parse(props.location.search);
+    const { data : token, mutate } = useToken(typeof(query.token) === 'string'? query.token : undefined);
     // const {data : userData, error, mutate } = useSWR('/api/me', fetcher);
 
     const [ currentTab, setCurrentTab ] = useState(
@@ -63,25 +64,6 @@ const Main = (props : RouteComponentProps)=>{
         (event : SelectChangeEvent)=>{
             setCurrentTeam(event.target.value);
         }, [currentTeam]);
-
-    //querystring에 token이 있다면 swr에 저장하기
-    const query = queryString.parse(props.location.search);
-    if(query.token !== undefined && token === ''){
-        // console.log(query.token);
-        // mutate('titititit');
-        // console.log(typeof(query.token) === 'string'? query.token : '');
-        let temp : string = typeof(query.token) === 'string'? query.token : '';
-        mutate(temp);
-    }
-    // console.log(token);
-    
-    // const query = queryString.parse(props.location.search);
-    // if(query.token !== undefined && token !== ''){
-    //     console.log('call', query.token);
-    //     mutate(typeof(query.token) === 'string'? query.token : '');
-    //     console.log(token);
-    // //     // mutate(query.token !== null? query.token : '');
-    // }
 
 
     return(
