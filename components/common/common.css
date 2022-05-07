@@ -29,6 +29,9 @@
     /* Book layout */
     --book-left-width : 330px;
     --householdhistory-height : 200px;
+
+    /* Book Spending */
+    --tool-bar-height : 40px;
     
     /* 공통 */
     --tab-header-height : 30px;
