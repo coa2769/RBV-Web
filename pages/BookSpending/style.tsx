@@ -33,7 +33,5 @@ export const TableContainer = styled.div`
     width : 100%;
     overflow : auto;
 
-    th {
-        padding : 5px 10px 5px 5px;
-    }
+
 `;
