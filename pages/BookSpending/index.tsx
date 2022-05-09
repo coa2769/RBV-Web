@@ -17,12 +17,18 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Collapse from '@mui/material/Collapse';
 
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+
 
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import PrintIcon from '@mui/icons-material/Print';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+
 
 import TableSortLabel from '@mui/material/TableSortLabel';
 
@@ -121,6 +127,7 @@ const BookSpending = ()=>{
 
     const [order, setOrder] = useState<Order>('desc');
     const [orderBy, setOrderBy ] = useState<keyof Data>('date');
+    const [open, setOpen] = React.useState(false);
 
     //분류 버튼 클릭
     const onClickCategory = useCallback((e)=>{
@@ -168,7 +175,7 @@ const BookSpending = ()=>{
                 </span>
             </ToolBar>
             <TableContainer>
-                <Table sx={{ minWidth: 960 }} size="small">
+                <Table stickyHeader sx={{ minWidth: 960 }} size="small">
                     <TableHead>
                         <TableRow>
                             {headCells.map((headCell, index)=>(
@@ -204,6 +211,43 @@ const BookSpending = ()=>{
                                 </TableRow>
                             ))
                         }
+                        {/* 일자별, 자산별... 로 분류하는 Table을 위한 예제 */}
+                        <TableRow>
+                            <TableCell colSpan={7}>
+                                <IconButton
+                                    aria-label="expand row"
+                                    size="small"
+                                    onClick={() => setOpen(!open)}
+                                >
+                                    {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                </IconButton>
+                                대분류 : 병원비
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
+                                <Collapse in={open} timeout="auto" unmountOnExit>
+                                    <Table sx={{ minWidth: 960 }} size="small">
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell>temp</TableCell>
+                                                <TableCell>temp</TableCell>
+                                                <TableCell>temp</TableCell>
+                                                <TableCell>temp</TableCell>
+                                                <TableCell>temp</TableCell>
+                                                <TableCell align="right">temp</TableCell>
+                                                <TableCell>temp</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell colSpan={2}>합계</TableCell>
+                                                <TableCell colSpan={5}>50000</TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
+
+                                </Collapse>
+                            </TableCell>
+                        </TableRow>
                     </TableBody>
                 </Table>
             </TableContainer>
