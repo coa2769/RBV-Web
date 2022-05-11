@@ -1,4 +1,4 @@
-# :pushpin: 가계부 앱
+# :pushpin: 공유 가계부 프로젝트
 > 기존의 가계부 기능과 웹 화면 제공.
 > 팀에 추가된 사용자들과 수입,지출 상황을 쉽게 공유하고 함께 관리할 수 있도록 기능 제공.
 > 해당 프로젝트에서 Web Front-End를 담당.
@@ -18,13 +18,13 @@
     - QueryDsl 5.0.0
 
 #### `Front-end`
-  - React.js 17.0.0
-  - Typescript
-  - react-router 5.0.0
-  - swr 1.3.0
-  - Material UI
-  - reacharts
-  - axios
+    - React.js 17.0.0
+    - Typescript
+    - react-router 5.0.0
+    - swr 1.3.0
+    - Material UI
+    - reacharts
+    - axios
 
 </br>
 
