@@ -24,7 +24,7 @@ import Asset from '@layouts/Asset';
 
 import useToken from "@hooks/useToken";
 import useSWR from 'swr';
-import fetcher from "@utils/fetcher";
+import { fetcher } from "@utils/fetcher";
 // import { getToken } from "@utils/utils";
 import axios from "axios";
 import queryString from 'query-string';

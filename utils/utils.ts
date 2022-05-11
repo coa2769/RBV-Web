@@ -1,4 +1,8 @@
 
+import {
+  Book
+} from '@typings/data';
+
 export type Order = 'asc' | 'desc';
 
 //a,b : Table의 Row.
@@ -44,4 +48,36 @@ export function sort<T>(array : readonly T[], comparator: (a: T, b: T) => number
 
     //정렬된 rows 반환
     return stabilizedThis.map((el) => el[0]);
+}
+
+export function classify(array : readonly Book[], classificationBy : keyof Book){
+  //@@typescrpt 에서 Object property 추가하는 방법
+  interface Result {
+    [key : string] : any
+  }
+
+  let result :Result = {};  
+
+  // //분류할 카테고리 만들기
+  // let categories = new Set<string>();
+  // array.forEach((value)=>categories.add(value[classificationBy] as string));
+
+  // //
+  // for(let item of Array.from(categories)) result[item] = [];
+  
+  // //분류
+  // array.forEach((value)=>{
+  //   //@@배열 깊은 복사하는 방법
+  //   result[value[classificationBy]].push(JSON.parse(JSON.stringify(value)));
+  // });
+
+
+  array.forEach((value)=>{
+    let key = value[classificationBy];
+    if(result[key] === undefined) result[key] = [];
+    
+    result[key].push(JSON.parse(JSON.stringify(value)));
+  });
+
+  return result;
 }
