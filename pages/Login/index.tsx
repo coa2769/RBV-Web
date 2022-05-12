@@ -48,21 +48,6 @@ const Login = ()=>{
         <div>
             <Main>
                 <h1>가계부에 로그인 해주세요</h1>
-{/* 
-    [ 에러 이유 ]
-    /oauth/authorize를 Ajax로 호출하셨나요?
-    /oauth/authorize는 리다이렉트 URI로 302 리다이렉트를 해야하기때문에 Ajax 호출하시면 안되고
-    a href 링크로 호출해보시겠어요?
-
-    authorize CORS에러의 원인은 비동기 통신 함수(XMLHttpRequest) 를 이용해서 발생합니다.
-
-    [ 해결 방안 ]
-    a tag사용
-
-
-    https://kakao-tam.tistory.com/81?category=872536
-    https://kakao-tam.tistory.com/59?category=866966
-*/}
                 <Container>
                     <ul>
                         {
